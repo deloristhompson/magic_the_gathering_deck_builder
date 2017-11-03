@@ -14,6 +14,10 @@
     <script
     src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js">
     </script>
+    <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
+
     <style>
         /* Remove the navbar's default margin-bottom and rounded borders */
         .navbar {
@@ -84,11 +88,11 @@
   <div class="row content">
     <div class="col-sm-2 sidenav">
       <p><a href="#">Build a Deck</a></p>
-      <p><a href="#">Search for a Card</a></p>
+      <p><%= link_to 'Search for a Card', new_search_path %></p>
       <p><a href="#">Link</a></p>
     </div>
 
-    <div class="col-sm-8 text-left">
+    <div class="col-sm-8">
       <% flash.each do |type, message| %>
         <div class="flash flash-<%= type %>">
           <%= message %>

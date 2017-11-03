@@ -7,8 +7,8 @@ class Card < ApplicationRecord
   validates_presence_of :toughness
   validates :cmc, presence: true, numericality: { only_integer: true }
 
-
-  has_many :colors
+  has_many :complete_cards
+  has_many :colors, through: :complete_cards
   has_many :rarities
-  has_many :types
+  has_many :types, through: :complete_cards
 end

@@ -1,0 +1,67 @@
+<h3>Search for a Card</h3>
+<%= form_tag(new_search_path, method: "get") do %>
+  <div class="form-row">
+    <div class="form-group col-sm-5">
+      <label for="name">Name:</label>
+      <%= text_field_tag :card_name, params[:card_name], placeholder: "Name" %>
+    </div>
+
+    <div class="form-group col-md-6">
+      <label for="artist">Artist:</label>
+      <%= text_field_tag :card_artist, params[:card_artist], placeholder: "Artist" %>
+    </div>
+
+    <div class="form-group col-md-6">
+      <label for="type">Type:</label>
+      <%= text_field_tag :search, params[:search], placeholder: "Type" %>
+    </div>
+
+    <div class="form-group col-md-6">
+      <label for="subtype">SubType:</label>
+      <%= text_field_tag :search, params[:search], placeholder: "SubType" %>
+    </div>
+
+    <div class="form-group col-md-6">
+      <label for="supertype">SuperType:</label>
+      <%= text_field_tag :search, params[:search], placeholder: "SuperType" %>
+    </div>
+
+    <div class="form-group col-md-6">
+      <label for="text">Text:</label>
+      <textarea id="text_description"rows="10" cols="20"></textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="colors">Colors:</label>
+      <%= collection_check_boxes(:card, :color_ids, @color_collection, :id, :name) %>
+    </div>
+
+    <div class="form-group col-md-6">
+      <label for="power">Power:</label>
+      <%= text_field_tag :card_power, params[:card_power], placeholder: "Power" %>
+    </div>
+
+    <div class="form-group col-md-6">
+      <label for="toughness">Toughness:</label>
+      <%= text_field_tag :card_toughness, params[:card_toughness], placeholder: "Toughness" %>
+    </div>
+
+    <div class="form-group col-md-6">
+      <label for="cmc">CMC:</label>
+      <%= text_field_tag :card_cmc, params[:card_cmc], placeholder: "CMC" %>
+    </div>
+
+    <div class="form-group col-md-6">
+      <label for="mana_cost">Mana Cost:</label>
+      <%= text_field_tag :card_mana, params[:card_mana], placeholder: "Mana Cost" %>
+    </div>
+
+    <div class="form-group col-md-6">
+      <label for="rarity">Rarity:</label>
+      <%= text_field_tag :search, params[:search], placeholder: "Rarity" %>
+    </div>
+
+    <%= submit_tag "Search", name: nil %>
+
+  </div>
+<% end %>

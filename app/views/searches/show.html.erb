@@ -1,0 +1,13 @@
+<%= @search.cards.each do |card| %>
+  <p>Name: <%= card.name %></p>
+  <p>Artist: <%= card.artist %></p>
+  <p>Text: <%= card.text %></p>
+  <p>Mana Cost: <%= card.mana_cost %></p>
+  <p>Power: <%= card.power %></p>
+  <p>Toughness: <%= card.toughness %></p>
+  <p>CMC: <%= card.cmc %></p>
+<% end %>
+
+<%= @search.types.each do |type| %>
+  <p>Type: <%= type.name %></p>
+<% end %>

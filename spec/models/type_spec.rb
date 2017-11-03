@@ -1,5 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe Type, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it { should have_valid(:name).when('Arcane Angel', 'Elf') }
+  it { should_not have_valid(:name).when('', nil) }
 end

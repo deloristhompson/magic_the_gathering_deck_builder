@@ -1,0 +1,65 @@
+<h1>Advanced Search</h1>
+<%= form_for @search do |f| %>
+  <div class="field">
+    <%= f.label :name, "Name:" %><br/>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :artist, "Artist:" %><br/>
+    <%= f.text_field :artist %>
+  </div>
+
+  <div class="field">
+    <%= f.label :mana_cost, "Mana Cost:" %><br/>
+    <%= f.text_field :mana_cost %>
+  </div>
+
+  <div class="field">
+    <%= f.label :power, "Power:" %><br/>
+    <%= f.text_field :power %>
+  </div>
+
+  <div class="field">
+    <%= f.label :toughness, "Toughness:" %><br/>
+    <%= f.text_field :toughness %>
+  </div>
+
+  <div class="field">
+    <%= f.label :cmc, "CMC:"%><br/>
+    <%= f.text_field :cmc %>
+  </div>
+
+  <div class="field">
+    <%= f.label :type, "Type:" %><br/>
+    <%= f.text_field :type %>
+  </div>
+
+  <div class="field">
+    <%= f.label :color, "Colors:" %>
+    <%= collection_check_boxes(:card, :color_ids, @color_collection, :id, :name) %>
+  </div>
+
+  <div class="field">
+    <%= f.label :text, "Text:" %><br/>
+    <%= f.text_field :text %>
+  </div>
+
+  <div class="field">
+    <%= f.label :power, "Power:" %><br/>
+    <%= f.text_field :power %>
+  </div>
+
+  <div class="field">
+    <%= f.label :toughness, "Toughness:" %><br/>
+    <%= f.text_field :toughness %>
+  </div>
+
+  <div class="field">
+    <%= f.label :rarity, "Rarity:" %><br/>
+    <%= f.text_field :rarity %>
+  </div>
+
+
+  <div class="actions"><%= f.submit "Search" %></div>
+<% end %>

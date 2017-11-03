@@ -23,9 +23,9 @@ RSpec.describe Card, type: :model do
   it { should have_valid(:cmc).when(4, 6) }
   it { should_not have_valid(:cmc).when(nil, '', 'five') }
 
-  it { should have_many(:rarities) }
-  it { should have_many(:colors) }
-  it { should have_many(:types) }
+  it { should have_many :rarities }
+  it { should have_many(:types).through(:complete_cards) }
+  it { should have_many(:colors).through(:complete_cards) }
   # it { should have_many(:sets) }
 end
 
