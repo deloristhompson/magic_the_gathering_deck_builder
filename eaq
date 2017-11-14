@@ -1,0 +1,48 @@
+=> [32m#<ActiveRecord::Result:0x25daf53c[0m
+ @column_types[32m=[0m
+  {[32m"id"[0m[0m=>
+    [32m#<ActiveModel::Type::Integer:0x234cb15c[0m @limit[32m=[0m[1;36mnil[0m, @precision[32m=[0m[1;36mnil[0m, @range[32m=[0m[1;34m-2147483648[0m...[1;34m2147483648[0m, @scale[32m=[0m[1;36mnil[0m[32m>[0m,
+   [32m"name"[0m[0m=>[32m#<ActiveModel::Type::String:0x23495818[0m @limit[32m=[0m[1;36mnil[0m, @precision[32m=[0m[1;36mnil[0m, @scale[32m=[0m[1;36mnil[0m[32m>[0m,
+   [32m"artist"[0m[0m=>[32m#<ActiveModel::Type::String:0x23495818[0m @limit[32m=[0m[1;36mnil[0m, @precision[32m=[0m[1;36mnil[0m, @scale[32m=[0m[1;36mnil[0m[32m>[0m,
+   [32m"power"[0m[0m=>[32m#<ActiveModel::Type::String:0x23495818[0m @limit[32m=[0m[1;36mnil[0m, @precision[32m=[0m[1;36mnil[0m, @scale[32m=[0m[1;36mnil[0m[32m>[0m,
+   [32m"toughness"[0m[0m=>[32m#<ActiveModel::Type::String:0x23495818[0m @limit[32m=[0m[1;36mnil[0m, @precision[32m=[0m[1;36mnil[0m, @scale[32m=[0m[1;36mnil[0m[32m>[0m,
+   [32m"text"[0m[0m=>[32m#<ActiveModel::Type::String:0x23495818[0m @limit[32m=[0m[1;36mnil[0m, @precision[32m=[0m[1;36mnil[0m, @scale[32m=[0m[1;36mnil[0m[32m>[0m,
+   [32m"cmc"[0m[0m=>
+    [32m#<ActiveModel::Type::Integer:0x234e4814[0m @limit[32m=[0m[1;36mnil[0m, @precision[32m=[0m[1;36mnil[0m, @range[32m=[0m[1;34m-2147483648[0m...[1;34m2147483648[0m, @scale[32m=[0m[1;36mnil[0m[32m>[0m,
+   [32m"mana_cost"[0m[0m=>[32m#<ActiveModel::Type::String:0x23495818[0m @limit[32m=[0m[1;36mnil[0m, @precision[32m=[0m[1;36mnil[0m, @scale[32m=[0m[1;36mnil[0m[32m>[0m,
+   [32m"created_at"[0m[0m=>
+    [32m#<ActiveRecord::ConnectionAdapters::PostgreSQL::OID::DateTime:0x233dfbd0[0m @limit[32m=[0m[1;36mnil[0m, @precision[32m=[0m[1;36mnil[0m, @scale[32m=[0m[1;36mnil[0m[32m>[0m,
+   [32m"updated_at"[0m[0m=>
+    [32m#<ActiveRecord::ConnectionAdapters::PostgreSQL::OID::DateTime:0x233dfbd0[0m @limit[32m=[0m[1;36mnil[0m, @precision[32m=[0m[1;36mnil[0m, @scale[32m=[0m[1;36mnil[0m[32m>[0m,
+   [32m"type"[0m[0m=>[32m#<ActiveModel::Type::String:0x23495818[0m @limit[32m=[0m[1;36mnil[0m, @precision[32m=[0m[1;36mnil[0m, @scale[32m=[0m[1;36mnil[0m[32m>[0m,
+   [32m"color"[0m[0m=>[32m#<ActiveModel::Type::String:0x23495818[0m @limit[32m=[0m[1;36mnil[0m, @precision[32m=[0m[1;36mnil[0m, @scale[32m=[0m[1;36mnil[0m[32m>[0m,
+   [32m"rarity"[0m[0m=>[32m#<ActiveModel::Type::String:0x23495818[0m @limit[32m=[0m[1;36mnil[0m, @precision[32m=[0m[1;36mnil[0m, @scale[32m=[0m[1;36mnil[0m[32m>[0m},
+ @columns[32m=[0m
+  [[32m"id"[0m[0m,
+   [32m"name"[0m[0m,
+   [32m"artist"[0m[0m,
+   [32m"power"[0m[0m,
+   [32m"toughness"[0m[0m,
+   [32m"text"[0m[0m,
+   [32m"cmc"[0m[0m,
+   [32m"mana_cost"[0m[0m,
+   [32m"created_at"[0m[0m,
+   [32m"updated_at"[0m[0m,
+   [32m"type"[0m[0m,
+   [32m"color"[0m[0m,
+   [32m"rarity"[0m[0m],
+ @hash_rows[32m=[0m[1;36mnil[0m,
+ @rows[32m=[0m
+  [[[1;34m77[0m,
+    [32m"Arcane"[0m[0m,
+    [32m"Jim Brown"[0m[0m,
+    [32m""[0m[0m,
+    [32m""[0m[0m,
+    [32m""[0m[0m,
+    [1;36mnil[0m,
+    [32m""[0m[0m,
+    [32m"2017-11-07 14:53:52.710842"[0m[0m,
+    [32m"2017-11-07 14:53:52.710842"[0m[0m,
+    [32m""[0m[0m,
+    [1;36mnil[0m,
+    [32m""[0m[0m]][32m>[0m

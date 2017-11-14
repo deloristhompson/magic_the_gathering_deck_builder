@@ -2,7 +2,6 @@ class CardsController < ApplicationController
   def index
     @cards = Card.all
     @color_collection = Color.all
-    binding.pry
   end
 
   def new

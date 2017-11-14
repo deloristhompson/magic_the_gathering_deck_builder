@@ -7,8 +7,17 @@ class Card < ApplicationRecord
   validates_presence_of :toughness
   validates :cmc, presence: true, numericality: { only_integer: true }
 
-  has_many :complete_cards
-  has_many :colors, through: :complete_cards
-  has_many :rarities
-  has_many :types, through: :complete_cards
+  belongs_to :color
+  belongs_to :rarity
+  belongs_to :type
+
+  validates :color, presence: true
+  validates :rarity, presence: true
+  validates :type, presence: true
+
+  def self.search(keywords)
+    cards = order(:name)
+    cards = cards.where("name LIKE ?", "%#{keywords}%") if keywords.present?
+    cards
+  end
 end

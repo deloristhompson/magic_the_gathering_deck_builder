@@ -14,10 +14,40 @@ end
   # * If I provide the specified information
   #   I am redirected to the card index page
   #   for the exact card.
+  let!(:new_type) {FactoryBot.create(:type, name: "Elf")}
 
-  let!(:angel_type) {FactoryBot.create(:type)}
+  let!(:elf_type) {
+    FactoryBot.create(:card,
+    name: "Skyshroud Poacher",
+    artist: 'Ron Spencer',
+    text: 'Search your library for and Elf card
+    and put that card into play.
+    Then shuffle your library.',
+    mana_cost: '{2}{G}{G}',
+    cmc: '4',
+    power: '2',
+    toughness: '2',
+    type: new_type
+    )
+  }
+  
   let!(:angel_card) {FactoryBot.create(:card)}
-  let!(:elf_card) {FactoryBot.create(:card, name: "Elf", artist: "John")}
+  let!(:elf_card) {FactoryBot.create(:card, name: "Elf", artist: "John", type: new_type)}
+  let!(:wrong_card) {FactoryBot.create(:card, name: "Ryders", artist: "Jim Brown")}
+  let!(:uncommon) {FactoryBot.create(:rarity, name: "Rare")}
+  let!(:wish_card) {
+    FactoryBot.create(:card,
+      name: "Wellwisher",
+      artist: 'Christopher Rush',
+      text: 'You gain 1 life for each Elf in play.',
+      mana_cost: '{1}{G}',
+      cmc: '2',
+      power: '1',
+      toughness: '1',
+      rarity: uncommon,
+      type: new_type
+    )
+  }
 
   scenario 'user searches by name' do
     visit '/'
@@ -32,18 +62,45 @@ end
     expect(page).to have_content('Mana Cost: {3}{W}{W}')
     expect(page).to have_content('CMC: 5')
     expect(page).to have_content('Power: 2')
+    expect(page).to have_content('Rarity: Common')
+    expect(page).to have_content('Type: Angel')
+    expect(page).to have_content('Color: Blue')
     expect(page).to have_content('Toughness: 4')
+
+    expect(page).to_not have_content('Name: Ryders')
   end
 
   scenario 'user searches by different name' do
     visit '/'
     click_link 'Search for a Card'
-    fill_in 'Name', with: 'Elf'
-    fill_in 'Artist', with: 'John'
+    fill_in 'Name', with: 'Ryders'
+    fill_in 'Artist', with: 'Jim Brown'
     click_button 'Search'
 
-    expect(page).to have_content('Name: Elf')
+    expect(page).to have_content('Name: Ryders')
     expect(page).to_not have_content('Name: Arcane Angel')
+    expect(page).to_not have_content('Name: Elf')
+  end
+
+  scenario 'user searches by artist' do
+    visit root_path
+    click_link 'Search for a Card'
+    fill_in 'Artist', with: 'Jim Brown'
+    click_button 'Search'
+
+    expect(page).to have_content('Name: Arcane Angel')
+    expect(page).to have_content('Name: Ryders')
+    expect(page).to_not have_content('Name: Wellwisher')
+  end
+
+  scenario 'user searches by rarity' do
+    visit root_path
+    click_link 'Search for a Card'
+    fill_in 'Rarity', with: 'Common'
+    click_button 'Search'
+
+    expect(page).to have_content('Name: Arcane Angel')
+    expect(page).to_not have_content('Name: Wellwisher')
   end
 
   scenario 'user searches by type' do
