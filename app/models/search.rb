@@ -13,12 +13,11 @@ class Search < ApplicationRecord
     @colors = find_colors
   end
 
-  private
-  def find_types
-    types = Type.order(:name)
-    types = types.where("name LIKE ?", "%#{name}%") if name.present?
-    types
+  def rarities
+    @rarities = find_rarity
   end
+
+  private
 
   def find_cards
     cards = Card.order(:name)
@@ -26,10 +25,12 @@ class Search < ApplicationRecord
     cards = cards.where("artist LIKE ?", "%#{artist}%") if artist.present?
     cards = cards.where("text LIKE ?", "%#{text}%") if text.present?
     cards = cards.where("mana_cost LIKE ?", "%#{mana_cost}%") if mana_cost.present?
+    cards = cards.where("cmc LIKE ?", "%#{cmc}%") if cmc.present?
+
     cards = cards.where("power LIKE ?", "%#{power}%") if power.present?
     cards = cards.where("toughness LIKE ?", "%#{toughness}%") if toughness.present?
-    cards = cards.where("cmc LIKE ?", "%#{cmc}%") if cmc.present?
-    cards = cards.limit(10)
+    cards = cards.where(id: Card.joins(:rarity).where("rarities.name LIKE ?", "%#{rarity}%"))
+    cards = cards.where(id: Card.joins(:type).where("types.name LIKE ?", "%#{type}%"))
     cards
   end
 

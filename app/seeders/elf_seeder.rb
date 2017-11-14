@@ -1,13 +1,15 @@
-class CardSeeder
-  CARDS = [
+class ElfSeeder
+  ELVES = [
     {
-      name: 'Arcane Angel',
-      artist: 'Jim Brown',
-      text: 'Arcane Angel has first strike',
-      mana_cost: '{3}{W}{W}',
-      cmc: '5',
+      name: "Skyshroud Poacher",
+      artist: 'Ron Spencer',
+      text: 'Search your library for and Elf card
+      and put that card into play.
+      Then shuffle your library.',
+      mana_cost: '{2}{G}{G}',
+      cmc: '4',
       power: '2',
-      toughness: '4'
+      toughness: '2'
     }, {
       name: "Wellwisher",
       artist: 'Christopher Rush',
@@ -15,7 +17,7 @@ class CardSeeder
       mana_cost: '{1}{G}',
       cmc: '2',
       power: '1',
-      toughness: '1',
+      toughness: '1'
     }, {
       name: "Taunting Elf",
       artist: 'Rebecca Guay',
@@ -45,8 +47,13 @@ class CardSeeder
     }
   ]
 
+  SUM = [
+    {
+      name: 'UnCommon'
+    }
+  ]
   def self.seed!
-    CARDS.each do |card_params|
+    ELVES.each do |card_params|
       card_name = card_params[:name]
       card_artist = card_params[:artist]
       card_mana = card_params[:mana_cost]

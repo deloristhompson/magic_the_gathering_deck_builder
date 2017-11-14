@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171103154414) do
+ActiveRecord::Schema.define(version: 20171109012348) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,6 +25,9 @@ ActiveRecord::Schema.define(version: 20171103154414) do
     t.integer "cmc", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "type_id", null: false
+    t.integer "color_id", null: false
+    t.integer "rarity_id", null: false
   end
 
   create_table "colors", force: :cascade do |t|
@@ -43,7 +46,6 @@ ActiveRecord::Schema.define(version: 20171103154414) do
   end
 
   create_table "rarities", force: :cascade do |t|
-    t.integer "card_id", null: false
     t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -90,9 +92,11 @@ ActiveRecord::Schema.define(version: 20171103154414) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "cards", "colors"
+  add_foreign_key "cards", "rarities"
+  add_foreign_key "cards", "types"
   add_foreign_key "complete_cards", "cards"
   add_foreign_key "complete_cards", "colors"
   add_foreign_key "complete_cards", "rarities"
   add_foreign_key "complete_cards", "types"
-  add_foreign_key "rarities", "cards"
 end
