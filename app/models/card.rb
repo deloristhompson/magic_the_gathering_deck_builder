@@ -14,10 +14,4 @@ class Card < ApplicationRecord
   validates :color, presence: true
   validates :rarity, presence: true
   validates :type, presence: true
-
-  def self.search(keywords)
-    cards = order(:name)
-    cards = cards.where("name LIKE ?", "%#{keywords}%") if keywords.present?
-    cards
-  end
 end

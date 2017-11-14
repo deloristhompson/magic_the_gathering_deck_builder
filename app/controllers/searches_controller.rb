@@ -1,9 +1,4 @@
 class SearchesController < ApplicationController
-  def index
-
-
-  end
-
   def new
     @search = Search.new
     @color_collection = Color.all
@@ -38,10 +33,4 @@ class SearchesController < ApplicationController
       :rarity
     )
   end
-  # @cards = Card.where("artist LIKE ?", "%#{params[:card]}%")
-  # @cards = Card.where("text LIKE ?", "%#{params[:card]}%")
-  # @cards = Card.where("mana_cost LIKE ?", "%#{params[:card]}%")
-  # @cards = Card.where("cmc LIKE ?", "%#{params[:card]}%")
-  # @cards = Card.where("power LIKE ?", "%#{params[:card]}%")
-  # @cards = Card.where("toughness LIKE ?", "%#{params[:card_toughness]}%")
 end

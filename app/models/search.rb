@@ -5,16 +5,8 @@ class Search < ApplicationRecord
     @cards = find_cards
   end
 
-  def types
-    @types = find_types
-  end
-
   def colors
     @colors = find_colors
-  end
-
-  def rarities
-    @rarities = find_rarity
   end
 
   private
