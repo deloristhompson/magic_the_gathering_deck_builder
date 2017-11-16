@@ -22,6 +22,8 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.5'
   gem 'shoulda'
   gem 'valid_attribute'
+  gem 'mtg_sdk'
+  gem 'httparty'
 end
 
 group :production do

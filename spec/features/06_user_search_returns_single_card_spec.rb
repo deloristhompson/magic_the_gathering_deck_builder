@@ -30,7 +30,7 @@ end
     type: new_type
     )
   }
-  
+
   let!(:angel_card) {FactoryBot.create(:card)}
   let!(:elf_card) {FactoryBot.create(:card, name: "Elf", artist: "John", type: new_type)}
   let!(:wrong_card) {FactoryBot.create(:card, name: "Ryders", artist: "Jim Brown")}
@@ -52,13 +52,13 @@ end
   scenario 'user searches by name' do
     visit '/'
     click_link 'Search for a Card'
-    fill_in 'Name', with: 'Arcane'
+    fill_in 'Name', with: 'Arcane Savant'
     fill_in 'Artist', with: 'Jim Brown'
     click_button 'Search'
 
-    expect(page).to have_content('Name: Arcane Angel')
-    expect(page).to have_content('Artist: Jim Brown')
-    expect(page).to have_content('Text: Arcane Angel has first strike')
+    expect(page).to have_content('Name: Arcane Savant')
+    expect(page).to have_content('Artist: Chris Rallis')
+    expect(page).to have_content('Text: Before y')
     expect(page).to have_content('Mana Cost: {3}{W}{W}')
     expect(page).to have_content('CMC: 5')
     expect(page).to have_content('Power: 2')

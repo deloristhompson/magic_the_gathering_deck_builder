@@ -1,14 +1,25 @@
-
-
 <% @search.cards.each do |card| %>
   <p>Name: <%= card.name %></p>
   <p>Artist: <%= card.artist %></p>
-  <p>Text: <%= card.text %></p>
+  <button data-toggle="collapse" data-target="#demo">Text</button>
+
+<div id="demo" class="collapse">
+  <p><%= card.text %></p>
+
+</div>
+
   <p>Mana Cost: <%= card.mana_cost %></p>
   <p>Power: <%= card.power %></p>
   <p>Toughness: <%= card.toughness %></p>
   <p>CMC: <%= card.cmc %></p>
-  <p>Rarity: <%= card.rarity.name %></p>
-  <p>Type: <%= card.type.name %></p>
-  <p>Color: <%= card.color.name %></p>
+  <p>Rarity: <%= card.rarity %></p>
+  <p>Type: <%= card.type %></p>
+  <% if card.colors.nil? %>
+    <p>Color: <%= card.colors %></p>
+  <% else %>
+    <% card.colors.each do |color| %>
+      <p>Color: <%= color %></p>
+
+    <% end %>
+  <% end %>
 <% end %>

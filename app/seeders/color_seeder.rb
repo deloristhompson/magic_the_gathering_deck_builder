@@ -15,7 +15,7 @@ class ColorSeeder
 
   def self.seed!
     COLORS.each do |color|
-      named_color = Color.find_or_create_by!(name: name)
+      named_color = Color.find_or_create_by!(name: color[:name])
       named_color.save!
     end
   end

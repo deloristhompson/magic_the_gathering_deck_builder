@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>MagicTheGathering</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet"
+    href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <script
+    src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+    </script>
+
+    <script
+    src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js">
+    </script>
+    <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
+
+    <style>
+        /* Remove the navbar's default margin-bottom and rounded borders */
+        .navbar {
+          margin-bottom: 0;
+          border-radius: 0;
+        }
+
+        /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+        .row.content {height: 450px}
+
+        /* Set gray background color and 100% height */
+        .sidenav {
+          padding-top: 20px;
+          background-color: #f1f1f1;
+          height: 100%;
+        }
+
+        /* Set black background color, white text and some padding */
+        footer {
+          background-color: #555;
+          color: white;
+          padding: 15px;
+        }
+
+        /* On small screens, set height to 'auto' for sidenav and grid */
+        @media screen and (max-width: 767px) {
+          .sidenav {
+            height: auto;
+            padding: 15px;
+          }
+          .row.content {height:auto;}
+        }
+      </style>
+  </head>
+
+  <body>
+    <nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+
+        <a class="navbar-brand" href="/"><img style="max-width:100px; margin-top: -14px;"
+          src="http://fourletternerd.com/wp-content/uploads/2013/10/magic_the_gathering_symbols_by_thekagestar-d37388h.png" alt="Magic The Gathering Logo"></a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="/">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Magic the Gathering Sets</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <% if user_signed_in? %>
+        <li><%= link_to 'Sign Out', destroy_user_session_path, method: :get%></li>
+        <% else %>
+        <li><a href="/users/sign_in"><span class="glyphicon glyphicon-log-in"></span> Sign In</a></li>
+        <li><a href="/users/sign_up"><span class="glyphicon glyphicon-log-in"></span> Sign Up</a></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container-fluid text-center">
+  <div class="row content">
+    <div class="col-sm-2 sidenav">
+      <p><a href="#">Build a Deck</a></p>
+      <p><%= link_to 'Search for a Card', new_search_path %></p>
+      <p><a href="#">Link</a></p>
+    </div>
+
+    <div class="col-sm-8">
+      <% flash.each do |type, message| %>
+        <div class="flash flash-<%= type %>">
+          <%= message %>
+        </div>
+      <% end %>
+      <div class="col-sm-8 text-left">
+
+      <% @search.cards.each do |card| %>
+            <p>Name: <%= card.name %></p>
+            <p>Artist: <%= card.artist %></p>
+            <p>Text: <%= card.text %></p>
+            <p>Mana Cost: <%= card.mana_cost %></p>
+            <p>Power: <%= card.power %></p>
+            <p>Toughness: <%= card.toughness %></p>
+            <p>CMC: <%= card.cmc %></p>
+            <p>Rarity: <%= card.rarity %></p>
+            <p>Type: <%= card.type %></p>
+            <% if card.colors.nil? %>
+            <p>Color: <%= card.colors %></p>
+            <% else %>
+            <% card.colors.each do |color| %>
+            <p>Color: <%= color %></p>
+            <% end %>
+
+            <% end %>
+            <% end %>
+    </div>
+  </div>
+
+    <div class="col-sm-2 sidenav">
+      <div class="well">
+        <p>ADS</p>
+      </div>
+      <div class="well">
+        <p>ADS</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="container-fluid text-center">
+  <p><a href="#">Contact</a></p>
+</footer>
+  </body>
+</html>

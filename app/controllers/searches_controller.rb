@@ -1,7 +1,11 @@
 class SearchesController < ApplicationController
+  include HTTParty
+  base_uri 'https://api.magicthegathering.io/v1/cards?'
+
   def new
     @search = Search.new
     @color_collection = Color.all
+
   end
 
   def show
@@ -16,6 +20,8 @@ class SearchesController < ApplicationController
       render :new
     end
   end
+  # binding.pry
+  # redirect_to @search
 
   private
 
