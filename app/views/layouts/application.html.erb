@@ -19,6 +19,18 @@
     <%= javascript_include_tag 'application' %>
 
     <style>
+    body, .col-sm-2.sidenav, footer.container-fluid {
+          color: #17802B;
+          background-color: white;
+      }
+
+      input {
+        color: black;
+      }
+      
+      .navbar-nav {
+        background-color: black;
+        }
         /* Remove the navbar's default margin-bottom and rounded borders */
         .navbar {
           margin-bottom: 0;
@@ -38,7 +50,7 @@
         /* Set black background color, white text and some padding */
         footer {
           background-color: #555;
-          color: white;
+          color: #17802B;
           padding: 15px;
         }
 
@@ -88,7 +100,8 @@
   <div class="row content">
     <div class="col-sm-2 sidenav">
       <p><a href="#">Build a Deck</a></p>
-      <p><%= link_to 'Search for a Card', new_search_path %></p>
+      <p><%= link_to 'Search for a Card', new_card_path %></p>
+      <p><%= link_to 'Advanced Card Search', new_search_path %></p>
       <p><a href="#">Link</a></p>
     </div>
 
@@ -102,10 +115,10 @@
     </div>
 
     <div class="col-sm-2 sidenav">
-      <div class="well">
+      <div>
         <p>ADS</p>
       </div>
-      <div class="well">
+      <div>
         <p>ADS</p>
       </div>
     </div>

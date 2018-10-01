@@ -19,6 +19,9 @@
     <%= javascript_include_tag 'application' %>
 
     <style>
+    p {
+      width: 15em;
+      }
         /* Remove the navbar's default margin-bottom and rounded borders */
         .navbar {
           margin-bottom: 0;
@@ -92,7 +95,7 @@
       <p><a href="#">Link</a></p>
     </div>
 
-    <div class="col-sm-8">
+    <div class="container">
       <% flash.each do |type, message| %>
         <div class="flash flash-<%= type %>">
           <%= message %>

@@ -10,11 +10,6 @@
       <%= f.text_field :artist %>
   </div>
 
-    <div class="field">
-      <%= f.label :mana_cost, "Mana Cost:" %><br/>
-      <%= f.text_field :mana_cost %>
-  </div>
-
   <div class="field">
       <%= f.label :power, "Power:" %><br/>
       <%= f.text_field :power %>
@@ -37,22 +32,12 @@
 
   <div class="field">
     <%= f.label :color, "Colors:" %>
-    <%= collection_check_boxes(:card, :color_ids, @color_collection, :id, :name) %>
+    <%= f.collection_check_boxes(:color_ids, @color_collection, :id, :name) %>
   </div>
 
   <div class="field" rows="10" cols="20">
     <%= f.label :text, "Text:" %><br/>
     <%= f.text_area :text %>
-  </div>
-
-  <div class="field">
-      <%= f.label :power, "Power:" %><br/>
-      <%= f.text_field :power %>
-  </div>
-
-  <div class="field">
-      <%= f.label :toughness, "Toughness:" %><br/>
-      <%= f.text_field :toughness %>
   </div>
 
   <div class="field">

@@ -1,4 +1,4 @@
-if Rails.env.development?
+if Rails.env.development? || Rails.env.production?
   ColorSeeder.seed!
   types = MTG::Type.all
   types.each do |type|

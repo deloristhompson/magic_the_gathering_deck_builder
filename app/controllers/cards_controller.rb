@@ -6,6 +6,7 @@ class CardsController < ApplicationController
 
   def new
     @card = Card.new
+    @color_collection = Color.all
   end
 
   def card_params
@@ -17,6 +18,7 @@ class CardsController < ApplicationController
       :cmc,
       :power,
       :toughness,
-      :created_at)
+      :created_at,
+      :color_id)
   end
 end

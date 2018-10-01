@@ -15,8 +15,10 @@ class ColorSeeder
 
   def self.seed!
     COLORS.each do |color|
-      named_color = Color.find_or_create_by!(name: color[:name])
-      named_color.save!
+      card_name = color[:name]
+      new_name = Color.find_or_create_by!(name: card_name)
+      new_name.assign_attributes(color)
+      new_name.save!
     end
   end
 end

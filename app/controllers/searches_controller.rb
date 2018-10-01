@@ -5,7 +5,6 @@ class SearchesController < ApplicationController
   def new
     @search = Search.new
     @color_collection = Color.all
-
   end
 
   def show
@@ -14,14 +13,15 @@ class SearchesController < ApplicationController
 
   def create
     @search = Search.new(search_params)
+    Color.where(id: params[:search][:color_ids]).each do |color|
+      @search.color = color.name
+    end
     if @search.save
       redirect_to @search
     else
       render :new
     end
   end
-  # binding.pry
-  # redirect_to @search
 
   private
 
@@ -29,11 +29,11 @@ class SearchesController < ApplicationController
     params.require(:search).permit(
       :name,
       :artist,
-      :text,
-      :mana_cost,
       :power,
       :toughness,
+      :text,
       :cmc,
+      :mana_cost,
       :type,
       :color,
       :rarity

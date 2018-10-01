@@ -1,12 +1,27 @@
-<% @search.cards.each do |card| %>
+<style>
+    #card {
+      border: solid;
+      max-width: 25em;
+      margin-bottom: 1em;
+      margin-left: 25em;
+      background-color: papayawhip;
+      color: black;
+      margin-top: 1em;
+      border-radius: 2em;
+      }
+
+      button {
+        border-radius: 12%;
+        }
+</style>
+<% @search.cards.each_with_index do |card, i| %>
+<div id="card" class="table-row">
   <p>Name: <%= card.name %></p>
   <p>Artist: <%= card.artist %></p>
-  <button data-toggle="collapse" data-target="#demo">Text</button>
-
-<div id="demo" class="collapse">
+  <button id="text_button" data="<%= card.text %>" data-toggle="collapse" data-target="#demo<%= i %>">Text</button>
+  <div id="demo<%=i%>" class="collapse">
   <p><%= card.text %></p>
-
-</div>
+  </div>
 
   <p>Mana Cost: <%= card.mana_cost %></p>
   <p>Power: <%= card.power %></p>
@@ -19,7 +34,7 @@
   <% else %>
     <% card.colors.each do |color| %>
       <p>Color: <%= color %></p>
-
     <% end %>
   <% end %>
+  </div>
 <% end %>

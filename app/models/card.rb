@@ -10,7 +10,7 @@ class Card < ApplicationRecord
   belongs_to :color
   belongs_to :rarity
   belongs_to :type
-
+  belongs_to :search
   validates :color, presence: true
   validates :rarity, presence: true
   validates :type, presence: true
